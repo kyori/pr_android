@@ -25,6 +25,8 @@
         <activity android:name=".Filter"></activity>
         <activity android:name=".Distortion"></activity>
         <activity android:name=".Mix"></activity>
+        <activity android:name=".Result"></activity>
+        
     </application>
 
 </manifest>
