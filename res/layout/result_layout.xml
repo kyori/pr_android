@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/f_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+   
+    <RadioGroup
+	    android:id="@+id/radioGroup01"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	>
+	    
+	<RadioButton 
+	    android:id="@+id/radio01"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:text="결과사진"
+	    android:textColor="#ffaaff10"
+	    android:textStyle="bold"
+	    android:textSize="24dp"
+	 />
+	</RadioGroup>
+    
+    
+    <Button
+        android:id="@+id/shareBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="공유하기"
+        tools:context=".Activity1" />
+    
+    <Button
+        android:id="@+id/downloadBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="다운로드"
+        tools:context=".Activity1" />
+    
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="메인으로"
+        tools:context=".Activity1" />
+    
+    
+<!--     
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello, android!" />
+ -->
+</LinearLayout>
