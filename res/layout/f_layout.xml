@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
 
     <TextView
         android:id="@+id/f_title"
@@ -10,15 +11,18 @@
         android:layout_height="wrap_content"
         android:text="필터"
         android:textSize="24dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="#ffffff" />
    
 	<ImageView
 		android:id="@+id/origin"
-		android:layout_width="100dp"
-		android:layout_height="116dp"
+		android:layout_width="150dp"
+		android:layout_height="150dp"
 		android:layout_marginRight="10dp"
+		android:layout_gravity="center"
 		android:scaleType="fitXY"
-		android:src="@drawable/sample" />
+		android:background="#eee" />
     
     
     <Button

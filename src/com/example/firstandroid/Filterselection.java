@@ -1,45 +1,40 @@
 package com.example.firstandroid;
 
+import java.io.File;
+
 import com.example.firstandroid.R;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.*;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Filterselection extends Activity {
 
+	public ImageView imv;
+	private static final int CROP_FROM_CAMERA = 2;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fs_layout);
 
-//        Button cameraBtn = (Button)findViewById(R.id.cameraBtn);
-//        cameraBtn.setOnClickListener(new OnClickListener() {
-//     	   public void onClick(View v) {
-// 			Toast.makeText(getApplicationContext(), "카메라 버튼을 눌렀습니다.", Toast.LENGTH_LONG).show();
-// 		//	finish();
-// 		}
-//     	   
-//        });
+//        Bundle bundle = getIntent().getExtras();
+//        Bitmap bitmap = (Bitmap)bundle.get("data");
         
-//        
-//       Button galleryBtn = (Button)findViewById(R.id.galleryBtn);
-//       galleryBtn.setOnClickListener(new OnClickListener() {
-//    	   public void onClick(View v) {
-//			Toast.makeText(getApplicationContext(), "갤러리 버튼을 눌렀습니다.", Toast.LENGTH_LONG).show();
-//		//	finish();
-//		}
-//    	   
-//       });
-
-       Button backBtn = (Button)findViewById(R.id.backBtn);
-       backBtn.setOnClickListener(new OnClickListener() {
+        imv= (ImageView)findViewById(R.id.origin);
+//        imv.setImageBitmap(bitmap);
+        
+        
+        Button backBtn = (Button)findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new OnClickListener() {
     	   public void onClick(View v) {
 			Toast.makeText(getApplicationContext(), "메인으로 돌아갑니다.", Toast.LENGTH_LONG).show();
 			finish();
@@ -57,9 +52,25 @@ public class Filterselection extends Activity {
    		}
     	   
        });
+       
+		final Bundle extras = getIntent().getExtras();
+		
+		if(extras != null)
+		{
+			
+			Bitmap photo = extras.getParcelable("data");
+			imv.setImageBitmap(photo);
+		
+			
+			
+		    
+//			startActivityForResult(intent, 0);
+
+		}
 
     }
  
+
 
 
     @Override

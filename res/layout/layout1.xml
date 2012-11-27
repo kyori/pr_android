@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_intro"
+    android:theme="@android:style/Theme.NoTitleBar" >
 
     <!--
     <Button
@@ -14,7 +16,7 @@
         android:text="@string/hello_world"
         tools:context=".Activity1" />
     -->
-
+<!-- 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -25,14 +27,14 @@
         android:text="Photo Revolution"
         android:textSize="24dp"
         android:textStyle="bold" />
-
+ -->
     <Button
         android:id="@+id/start02Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
+        android:layout_marginBottom="124dp"
         android:text="Filter Filter Filter"
         tools:context=".Activity1" />
 
@@ -40,8 +42,9 @@
         android:id="@+id/start03Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/start02Btn"
-        android:layout_below="@+id/start02Btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="74dp"
         android:text="distortion distortion"
         tools:context=".Activity1" />
 
@@ -49,8 +52,9 @@
         android:id="@+id/start04Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/start03Btn"
-        android:layout_below="@+id/start03Btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
         android:text="mix mix mix mix mix"
         tools:context=".Activity1" />
 

@@ -2,12 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
 
     <TextView
         android:id="@+id/f_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Result"
         android:textSize="24dp"
         android:textStyle="bold" />
@@ -16,6 +18,7 @@
 		android:id="@+id/origin"
 		android:layout_width="100dp"
 		android:layout_height="116dp"
+		android:layout_gravity="center"
 		android:layout_marginRight="10dp"
 		android:scaleType="fitXY"
 		android:src="@drawable/sample" />
@@ -23,6 +26,7 @@
     
     <Button
         android:id="@+id/shareBtn"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -32,6 +36,7 @@
     
     <Button
         android:id="@+id/downloadBtn"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -41,6 +46,7 @@
     
     <Button
         android:id="@+id/backBtn"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

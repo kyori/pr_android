@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
 
     <TextView
         android:id="@+id/f_title"
@@ -10,21 +11,26 @@
         android:layout_height="wrap_content"
         android:text="필터선택"
         android:textSize="24dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="#ffffff" />
    
     <ImageView
 		android:id="@+id/origin"
-		android:layout_width="100dp"
-		android:layout_height="116dp"
+		android:layout_width="150dp"
+		android:layout_height="150dp"
 		android:layout_marginRight="10dp"
+		android:layout_gravity="center"
 		android:scaleType="fitXY"
-		android:src="@drawable/sample" />
+		android:background="#ffffff"
+		 />
     
         <RadioGroup
 	    android:id="@+id/radioGroup01"
 	    android:layout_width="wrap_content"
 	    android:orientation="horizontal"
 	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
 	>
 	    
 	<RadioButton 
@@ -66,6 +72,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="메인으로"
+        android:layout_gravity="center"
         tools:context=".Activity1" />
     
         <Button
@@ -75,6 +82,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="다음"
+        android:layout_gravity="center"
         tools:context=".Activity1" />
     
 <!--     
