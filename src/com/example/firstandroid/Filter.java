@@ -13,9 +13,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.*;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +26,8 @@ public class Filter extends Activity implements OnClickListener {
 	private static final int PICK_FROM_CAMERA = 0;
 	private static final int PICK_FROM_ALBUM = 1;
 	private static final int CROP_FROM_CAMERA = 2;
+	private static final int SELECT_FILTER = 4;
+	 
 
 	private Uri mImageCaptureUri;
 	private ImageView mPhotoImageView;
@@ -33,7 +35,7 @@ public class Filter extends Activity implements OnClickListener {
 
 	public Button mGalleryButton;
 	public Button mFotoButton;
-	
+	public String hello;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -67,18 +69,7 @@ public class Filter extends Activity implements OnClickListener {
 		}
     	   
        });
-       
-       
-       Button nextBtn = (Button)findViewById(R.id.nextBtn);
-       nextBtn.setOnClickListener(new OnClickListener() {
-    	   public void onClick(View v) {
-        	    Intent myIntent = new Intent(getApplicationContext(), Filterselection.class);
-        	    startActivity(myIntent);
-        	    finish();
-   		}
-    	   
-       });
-
+           	   
 	}
 
 	/**
@@ -86,13 +77,6 @@ public class Filter extends Activity implements OnClickListener {
 	 */
 	private void doTakePhotoAction()
 	{
-		/*
-		 * 참고 해볼곳
-		 * http://2009.hfoss.org/Tutorial:Camera_and_Gallery_Demo
-		 * http://stackoverflow.com/questions/1050297/how-to-get-the-url-of-the-captured-image
-		 * http://www.damonkohler.com/2009/02/android-recipes.html
-		 * http://www.firstclown.us/tag/android/
-		 */
 
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		
@@ -102,7 +86,7 @@ public class Filter extends Activity implements OnClickListener {
 		
 		intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
 		intent.putExtra("return-data", true);
-
+		
 		startActivityForResult(intent, PICK_FROM_CAMERA);
 
 	}
@@ -131,6 +115,10 @@ public class Filter extends Activity implements OnClickListener {
 
 		startActivityForResult(intent, PICK_FROM_ALBUM);
 	}
+	
+	
+	
+	
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -146,32 +134,36 @@ public class Filter extends Activity implements OnClickListener {
 			{
 				// 크롭이 된 이후의 이미지를 넘겨 받습니다. 이미지뷰에 이미지를 보여준다거나 부가적인 작업 이후에
 				// 임시 파일을 삭제합니다.
-//				final Bundle extras = data.getExtras();
+				final Bundle extras = data.getExtras();
 //	
-//				if(extras != null)
-//				{
-//					
-//					Bitmap photo = extras.getParcelable("data");
-//					mPhotoImageView.setImageBitmap(photo);
+				if(extras != null)
+				{
+					
+					Bitmap photo = extras.getParcelable("data");
+//					String hello = photo.toString();
+//		 			Toast.makeText(getApplicationContext(), hello, Toast.LENGTH_LONG).show();
+
+					mPhotoImageView.setImageBitmap(photo);
 					
 					// 여기서 intent 생성해서 photo값 result클래스로 넘겨주면되나????
 //					Intent i = new Intent(getApplicationContext(), Filterselection.class);
 //					i.putExtra(name, value);
 					
-	//				setContrast(mPhotoImageView);
+					setContrast(mPhotoImageView);
 					
-				    
-//					startActivityForResult(intent, 0);
+				    Intent myIntent = new Intent(getApplicationContext(), Filterselection.class);
+					myIntent.setDataAndType(mImageCaptureUri, "image/*");
 
-//				}
-				
-			    Intent myIntent = new Intent(getApplicationContext(), Filterselection.class);
-			    myIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
-			    
-				startActivity(myIntent);
+					myIntent.putExtra("bitmap", photo);
+					startActivity(myIntent);
+				}
+
+
 	
 				// 임시 파일 삭제
 				File f = new File(mImageCaptureUri.getPath());
+				String knew= f.toString();
+
 				if(f.exists())
 				{
 					f.delete();

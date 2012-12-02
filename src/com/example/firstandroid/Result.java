@@ -6,18 +6,30 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.*;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Result extends Activity {
 
+	public ImageView imv;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_layout);
+        
+        
+        Bundle bundle = this.getIntent().getExtras();
+
+        Bitmap bitmap = bundle.getParcelable("bitmap");
+        
+        imv= (ImageView)findViewById(R.id.origin);
+        imv.setImageBitmap(bitmap);
+        
         
         Button shareBtn = (Button)findViewById(R.id.shareBtn);
         shareBtn.setOnClickListener(new OnClickListener() {
