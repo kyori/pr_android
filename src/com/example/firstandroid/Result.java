@@ -71,15 +71,6 @@ public class Result extends Activity {
      					    Intent.ACTION_MEDIA_MOUNTED,
      					    Uri.parse("file://" + Environment.getExternalStorageDirectory())));
      				
-//    			    MediaScannerConnection.scanFile(this,
-//			                new String[] { out.toString() }, null,
-//			                new MediaScannerConnection.OnScanCompletedListener() {
-//			            public void onScanCompleted(String path, Uri uri) {
-//			                Log.i("ExternalStorage", "Scanned " + path + ":");
-//			                Log.i("ExternalStorage", "-> uri=" + uri);
-//			            }
-//			        });     			
-
      			}
      			catch(FileNotFoundException e)
      			{
@@ -90,17 +81,6 @@ public class Result extends Activity {
    			Toast.makeText(getApplicationContext(), "사진이 다운로드 되었습니다.", Toast.LENGTH_LONG).show();
 
      		}
-//     		public void onClick(View v) {
-//     		  try {
-//				saveImageExternalStorage(bitmap, String.valueOf(System.currentTimeMillis()));
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//     		
-//   			Toast.makeText(getApplicationContext(), "사진이 다운로드 되었습니다.", Toast.LENGTH_LONG).show();
-//
-//     	   }
      	}
      	);
         
@@ -118,71 +98,26 @@ public class Result extends Activity {
         
     }
     
-    public static boolean saveImageExternalStorage(Bitmap image, String imageName) throws IOException {
-        // 파일 생성
-        File file = new File(Environment.getExternalStorageDirectory(),
-                imageName);
-        
-        File path = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES);
-        File new_file = new File(path, imageName);
-        
-        // Cache 폴더에 저장하려면 getExternalCacheDir()
-        new_file.createNewFile();
- 
-        BufferedOutputStream out = new BufferedOutputStream(
-                new FileOutputStream(file));
-        image.compress(CompressFormat.JPEG, 100, out);
-        out.flush();
-        out.close();
- 
-        return true;
-    }
-
-//    void createExternalStoragePublicPicture() {
-//        // Create a path where we will place our picture in the user's
-//        // public pictures directory.  Note that you should be careful about
-//        // what you place here, since the user often manages these files.  For
-//        // pictures and other media owned by the application, consider
-//        // Context.getExternalMediaDir().
+//    public static boolean saveImageExternalStorage(Bitmap image, String imageName) throws IOException {
+//        // 파일 생성
+//        File file = new File(Environment.getExternalStorageDirectory(),
+//                imageName);
+//        
 //        File path = Environment.getExternalStoragePublicDirectory(
 //                Environment.DIRECTORY_PICTURES);
-//        File file = new File(path, "DemoPicture.jpg");
-//
-//        try {
-//            // Make sure the Pictures directory exists.
-//            path.mkdirs();
-//
-//            // Very simple code to copy a picture from the application's
-//            // resource into the external file.  Note that this code does
-//            // no error checking, and assumes the picture is small (does not
-//            // try to copy it in chunks).  Note that if external storage is
-//            // not currently mounted this will silently fail.
-//            InputStream is = getResources().openRawResourceFd("bitmap");
-//            OutputStream os = new FileOutputStream(file);
-//            byte[] data = new byte[is.available()];
-//            is.read(data);
-//            os.write(data);
-//            is.close();
-//            os.close();
-//
-//            // Tell the media scanner about the new file so that it is
-//            // immediately available to the user.
-//            MediaScannerConnection.scanFile(this,
-//                    new String[] { file.toString() }, null,
-//                    new MediaScannerConnection.OnScanCompletedListener() {
-//                public void onScanCompleted(String path, Uri uri) {
-//                    Log.i("ExternalStorage", "Scanned " + path + ":");
-//                    Log.i("ExternalStorage", "-> uri=" + uri);
-//                }
-//            });
-//        } catch (IOException e) {
-//            // Unable to create file, likely because external storage is
-//            // not currently mounted.
-//            Log.w("ExternalStorage", "Error writing " + file, e);
-//        }
+//        File new_file = new File(path, imageName);
+//        
+//        // Cache 폴더에 저장하려면 getExternalCacheDir()
+//        new_file.createNewFile();
+// 
+//        BufferedOutputStream out = new BufferedOutputStream(
+//                new FileOutputStream(file));
+//        image.compress(CompressFormat.JPEG, 100, out);
+//        out.flush();
+//        out.close();
+// 
+//        return true;
 //    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
