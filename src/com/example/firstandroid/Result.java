@@ -64,7 +64,14 @@ public class Result extends Activity {
      			FileOutputStream out = null;
 
      			try{
-     				out=new FileOutputStream(Environment.getExternalStorageDirectory().getPath()+"/photo_"+ String.valueOf(System.currentTimeMillis())+ ".png");
+     				
+     					File path = new File("/sdcard/PhotoRevolution");
+     				     if(! path.isDirectory()) {
+     				             path.mkdirs();
+     				      }
+     				
+     				
+     				out = new FileOutputStream("/sdcard/PhotoRevolution"+"/photo_"+ String.valueOf(System.currentTimeMillis())+ ".png");
      				bitmap.compress(Bitmap.CompressFormat.PNG, 50, out);
      				
      				sendBroadcast(new Intent(
@@ -77,6 +84,8 @@ public class Result extends Activity {
      				e.printStackTrace();
      			}
      			
+			    String os = Environment.getExternalStorageDirectory().getPath().toString();
+	   			Toast.makeText(getApplicationContext(), os , Toast.LENGTH_LONG).show();
 			    
    			Toast.makeText(getApplicationContext(), "사진이 다운로드 되었습니다.", Toast.LENGTH_LONG).show();
 

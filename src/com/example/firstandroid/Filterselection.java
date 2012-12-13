@@ -32,11 +32,10 @@ public class Filterselection extends Activity {
         setContentView(R.layout.fs_layout);
 
         Bundle bundle = this.getIntent().getExtras();
-        //bundle data´Â ³Ñ¾î¿È. ¹¹°¡¹®Á¦Â¡?????!!!
         
 //        if(bundle != null) {
 //         String value= bundle.toString();
-//    		Toast.makeT/ext(getApplicationContext(), value, Toast.LENGTH_LONG).show();
+//    		Toast.makeText(getApplicationContext(), value, Toast.LENGTH_LONG).show();
 
             final Bitmap bitmap = bundle.getParcelable("bitmap");
             
