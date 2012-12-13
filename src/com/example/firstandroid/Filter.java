@@ -188,8 +188,8 @@ public class Filter extends Activity implements OnClickListener {
 				Intent intent = new Intent("com.android.camera.action.CROP");
 				intent.setDataAndType(mImageCaptureUri, "image/*");
 	
-				intent.putExtra("outputX", 150);
-				intent.putExtra("outputY", 150);
+				intent.putExtra("outputX", 180);
+				intent.putExtra("outputY", 180);
 				intent.putExtra("aspectX", 1);
 				intent.putExtra("aspectY", 1);
 				intent.putExtra("scale", true);

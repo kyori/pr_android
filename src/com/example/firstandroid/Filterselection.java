@@ -119,12 +119,17 @@ public class Filterselection extends Activity {
 	}
 	
 	public void setClear(ImageView v){
-		//¹ÝÀü
 		ColorMatrix matrix = new ColorMatrix(new float[]{
-				0, 0, 0, 0, 0,
-				0, 0, 0, 0, 0,
-				0, 0, 0, 0, 0,
-				0, 0, 0, 0, 0});		
+				1.438f, -.062f, -0.062f, 0, 10,
+				-0.122f, 1.378f, -0.122f, 0, 30,
+				-0.016f, -0.016f, 1.483f, 0, 10,
+				-0.03f, 0.05f, -0.02f, 1, 0});		
+//		ColorMatrix matrix = new ColorMatrix(new float[]{
+//				-1, 0, 0, 0, 255,
+//				0, -1, 0, 0, 255,
+//				0, 0, -1, 0, 255,
+//				0, 0, 0, 1, 0});		
+
 		ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
 		v.setColorFilter(cf);
 	}
