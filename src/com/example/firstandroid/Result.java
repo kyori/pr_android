@@ -83,10 +83,7 @@ public class Result extends Activity {
      			{
      				e.printStackTrace();
      			}
-     			
-			    String os = Environment.getExternalStorageDirectory().getPath().toString();
-	   			Toast.makeText(getApplicationContext(), os , Toast.LENGTH_LONG).show();
-			    
+     						    
    			Toast.makeText(getApplicationContext(), "사진이 다운로드 되었습니다.", Toast.LENGTH_LONG).show();
 
      		}
