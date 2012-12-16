@@ -15,12 +15,31 @@ public final class R {
         public static final int android=0x7f020001;
         public static final int bg=0x7f020002;
         public static final int bg_intro=0x7f020003;
-        public static final int btn_distortion=0x7f020004;
-        public static final int btn_funnycamera=0x7f020005;
-        public static final int btn_mix=0x7f020006;
-        public static final int ic_action_search=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int sample=0x7f020009;
+        public static final int btn_camera=0x7f020004;
+        public static final int btn_distortion=0x7f020005;
+        public static final int btn_filter=0x7f020006;
+        public static final int btn_funnycamera=0x7f020007;
+        public static final int btn_gallery=0x7f020008;
+        public static final int btn_main=0x7f020009;
+        public static final int btn_mix=0x7f02000a;
+        public static final int btn_next=0x7f02000b;
+        public static final int btn_save=0x7f02000c;
+        public static final int btn_sns=0x7f02000d;
+        public static final int distortion=0x7f02000e;
+        public static final int filter=0x7f02000f;
+        public static final int filter_class=0x7f020010;
+        public static final int filter_cont=0x7f020011;
+        public static final int filter_page=0x7f020012;
+        public static final int filter_page1=0x7f020013;
+        public static final int filter_rever=0x7f020014;
+        public static final int filter_selection_page=0x7f020015;
+        public static final int ic_action_search=0x7f020016;
+        public static final int ic_launcher=0x7f020017;
+        public static final int mix=0x7f020018;
+        public static final int page=0x7f020019;
+        public static final int pr_icon=0x7f02001a;
+        public static final int result_page=0x7f02001b;
+        public static final int sample=0x7f02001c;
     }
     public static final class id {
         public static final int allDay=0x7f070010;

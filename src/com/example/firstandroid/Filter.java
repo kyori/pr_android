@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.*;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,8 +35,8 @@ public class Filter extends Activity implements OnClickListener {
 	private ImageView mPhotoImageView;
 	private Button mButton;
 
-	public Button mGalleryButton;
-	public Button mFotoButton;
+	public ImageButton mGalleryButton;
+	public ImageButton mFotoButton;
 	public String hello;
 	
 	@Override
@@ -44,16 +46,22 @@ public class Filter extends Activity implements OnClickListener {
 		setContentView(R.layout.f_layout);
 
 		mPhotoImageView = (ImageView) findViewById(R.id.origin);
-        mFotoButton = (Button)findViewById(R.id.cameraBtn);
-        mFotoButton.setOnClickListener(new OnClickListener() {
+
+		mFotoButton = (ImageButton)findViewById(R.id.cameraBtn);
+	    Bitmap c_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_camera);
+	    mFotoButton.setImageBitmap(c_image);
+
+		mFotoButton.setOnClickListener(new OnClickListener() {
      	   public void onClick(View v) {
      		  doTakePhotoAction();
  		}
      	   
         });
-        
-        
-       mGalleryButton = (Button)findViewById(R.id.galleryBtn);
+               
+       mGalleryButton = (ImageButton)findViewById(R.id.galleryBtn);
+       Bitmap g_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_gallery);
+       mGalleryButton.setImageBitmap(g_image);
+
        mGalleryButton.setOnClickListener(new OnClickListener() {
     	   public void onClick(View v) {
     		   doTakeAlbumAction();
@@ -61,7 +69,10 @@ public class Filter extends Activity implements OnClickListener {
     	   
        });
 
-       Button backBtn = (Button)findViewById(R.id.backBtn);
+       ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
+       Bitmap b_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_main);
+       backBtn.setImageBitmap(b_image);
+       
        backBtn.setOnClickListener(new OnClickListener() {
     	   public void onClick(View v) {
 			Toast.makeText(getApplicationContext(), "메인으로 돌아갑니다.", Toast.LENGTH_LONG).show();

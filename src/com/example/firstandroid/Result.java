@@ -27,6 +27,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.*;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -43,13 +44,18 @@ public class Result extends Activity {
 
         final Bitmap bitmap = bundle.getParcelable("bitmap");
         
-        Bitmap result_bitmap = BitmapFactory.decodeResource(getResources(), R.id.origin);
+//        Bitmap result_bitmap = BitmapFactory.decodeResource(getResources(), R.id.origin);
 
         imv= (ImageView)findViewById(R.id.origin);
         imv.setImageBitmap(bitmap);
         
         
-        Button shareBtn = (Button)findViewById(R.id.shareBtn);
+        
+        
+        ImageButton shareBtn = (ImageButton)findViewById(R.id.shareBtn);
+	    Bitmap s_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_sns);
+	    shareBtn.setImageBitmap(s_image);
+
         shareBtn.setOnClickListener(new OnClickListener() {
      	   public void onClick(View v) {
  			Toast.makeText(getApplicationContext(), "사진을 SNS에 공유합니다.", Toast.LENGTH_LONG).show();
@@ -58,7 +64,10 @@ public class Result extends Activity {
         }
         );
         
-     	Button downBtn = (Button)findViewById(R.id.downloadBtn);
+     	ImageButton downBtn = (ImageButton)findViewById(R.id.downloadBtn);
+	    Bitmap d_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_save);
+	    downBtn.setImageBitmap(d_image);
+
      	downBtn.setOnClickListener(new OnClickListener() {
      		public void onClick(View v){
      			FileOutputStream out = null;
@@ -92,7 +101,10 @@ public class Result extends Activity {
         
         
 
-       Button backBtn = (Button)findViewById(R.id.backBtn);
+       ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
+       Bitmap b_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_main);
+	   backBtn.setImageBitmap(b_image);
+
        backBtn.setOnClickListener(new OnClickListener() {
     	   public void onClick(View v) {
 			Toast.makeText(getApplicationContext(), "메인으로 돌아갑니다.", Toast.LENGTH_LONG).show();

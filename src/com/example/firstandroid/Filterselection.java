@@ -1,14 +1,19 @@
 package com.example.firstandroid;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 import com.example.firstandroid.R;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.util.Log;
@@ -16,6 +21,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.*;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,53 +31,61 @@ public class Filterselection extends Activity {
 	private static final int CROP_FROM_CAMERA = 2;
 	public String hello;
 	public Bundle bundle;
-	
+//	public Bitmap result_bmp;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fs_layout);
 
         Bundle bundle = this.getIntent().getExtras();
-        
-//        if(bundle != null) {
-//         String value= bundle.toString();
-//    		Toast.makeText(getApplicationContext(), value, Toast.LENGTH_LONG).show();
 
             final Bitmap bitmap = bundle.getParcelable("bitmap");
             
             imv= (ImageView)findViewById(R.id.origin);
             imv.setImageBitmap(bitmap);
-//            setContrast(imv);
-        	
-//        }
-            Button filter1= (Button)findViewById(R.id.filter01);
+
+            
+            ImageButton filter1= (ImageButton)findViewById(R.id.filter01);
+    	    Bitmap f_image1= BitmapFactory.decodeResource(getResources(), R.drawable.filter_cont);
+    	    filter1.setImageBitmap(f_image1);
+
             filter1.setOnClickListener(new OnClickListener() {
           	   public void onClick(View v) {
-          		   setContrast(imv);
+          		   setContrast(imv);          		   
           	   }
           	   
              });
             
-            Button filter2= (Button)findViewById(R.id.filter02);
-            filter2.setOnClickListener(new OnClickListener() {
+            ImageButton filter2= (ImageButton)findViewById(R.id.filter02);
+            Bitmap f_image2= BitmapFactory.decodeResource(getResources(), R.drawable.filter_rever);
+    	    filter2.setImageBitmap(f_image2);
+            
+    	    filter2.setOnClickListener(new OnClickListener() {
           	   public void onClick(View v) {
           		   setReversal(imv);
           	   }
           	   
              });
 
-            Button filter3= (Button)findViewById(R.id.filter03);
+            ImageButton filter3= (ImageButton)findViewById(R.id.filter03);
+            Bitmap f_image3= BitmapFactory.decodeResource(getResources(), R.drawable.filter_class);
+    	    filter3.setImageBitmap(f_image3);
+    	    
             filter3.setOnClickListener(new OnClickListener() {
           	   public void onClick(View v) {
           		   setClear(imv);
           	   }
           	   
              });
-            Button nextBtn = (Button)findViewById(R.id.nextBtn);
+            
+            ImageButton nextBtn = (ImageButton)findViewById(R.id.nextBtn);
+            Bitmap n_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_next);
+    	    nextBtn.setImageBitmap(n_image);
+    	    
             nextBtn.setOnClickListener(new OnClickListener() {
-         	   public void onClick(View v) {
-             	    Intent myIntent = new Intent(getApplicationContext(), Result.class);
-             	    myIntent.putExtra("bitmap", bitmap);
+			public void onClick(View v) {
+         		   Intent myIntent = new Intent(getApplicationContext(), Result.class);
+             	   myIntent.putExtra("bitmap", bitmap);
              	    
              	    startActivity(myIntent);
              	    finish();
@@ -80,7 +94,10 @@ public class Filterselection extends Activity {
             });
  
         
-        Button backBtn = (Button)findViewById(R.id.backBtn);
+        ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
+        Bitmap b_image= BitmapFactory.decodeResource(getResources(), R.drawable.btn_main);
+	    backBtn.setImageBitmap(b_image);
+        
         backBtn.setOnClickListener(new OnClickListener() {
     	   public void onClick(View v) {
 			Toast.makeText(getApplicationContext(), "메인으로 돌아갑니다.", Toast.LENGTH_LONG).show();

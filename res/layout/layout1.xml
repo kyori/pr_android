@@ -28,34 +28,34 @@
         android:textSize="24dp"
         android:textStyle="bold" />
  -->
-    <Button
+    <ImageButton
         android:id="@+id/start02Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="124dp"
-        android:text="Filter Filter Filter"
+        android:background="#00000000" 
         tools:context=".Activity1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/start03Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="74dp"
-        android:text="distortion distortion"
+        android:background="#00000000" 
         tools:context=".Activity1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/start04Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
-        android:text="mix mix mix mix mix"
+        android:background="#00000000" 
         tools:context=".Activity1" />
 
 </RelativeLayout>
